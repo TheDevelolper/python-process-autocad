@@ -1,0 +1,12 @@
+{
+    "conversion" : {
+        "oda_converter_path": "C:\\Program Files\\ODA\\ODAFileConverter 25.12.0\\ODAFileConverter.exe",
+        "input_folder": "dwg",
+        "output_folder": "dxf",
+        "output_version": "ACAD2018",
+        "output_file_type": "DXF",
+        "recurse_input_folder": "1",
+        "audit_files": "1",
+        "input_file_filter": "*.DWG"
+    }
+}
