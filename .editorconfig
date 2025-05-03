@@ -1,0 +1,27 @@
+# .editorconfig for Python
+
+# Root of the editorconfig file
+root = true
+
+# Python files
+[*.py]
+# Set the indent style to tabs and the indent size to 4 spaces
+indent_style = tab
+indent_size = 4
+
+# Set the maximum line length to 79 characters (PEP 8 recommended)
+max_line_length = 79
+
+# Ensure that all files end with a newline
+end_of_line = lf
+insert_final_newline = true
+
+# Set the encoding to UTF-8
+charset = utf-8
+
+# Trim trailing whitespace
+trim_trailing_whitespace = true
+
+# Add blank lines between function and class definitions
+python_class_separator = 2
+python_function_separator = 1
