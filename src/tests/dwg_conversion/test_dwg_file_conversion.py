@@ -24,6 +24,15 @@ def context() -> Dict[str, Any]:
     return result
 
 
+@given(parsers.parse("the oda path {path} is provided"))
+def given_the_incorrect_oda_path_is_provided(context: Dict[str, Any], path: str):
+    """Given the dwg is not present.
+    Overrides the default app settings to specify an empty to scan for dwg files
+    """
+    app_settings: AppSettings = context["app_settings"]
+    app_settings.conversion.oda_converter_path = path
+
+
 @given(parsers.parse("the dwg is not present in directory {directory}"))
 def given_the_dwg_is_not_present(context: Dict[str, Any], directory: str):
     """Given the dwg is not present.

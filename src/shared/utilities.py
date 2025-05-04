@@ -7,6 +7,11 @@ class FileSystemHelper:
     """Shared helper functions for handling directories and files"""
 
     @staticmethod
+    def path_exists(path: str) -> bool:
+        """Test whether a path exists. Returns False for broken symbolic links"""  # Copied this from path.exists docstring
+        result = os.path.exists(path)
+        return result
+
     @staticmethod
     def get_dir_files(path: str, pattern: Optional[str] = None) -> List[str]:
         """Gets a list of files in the given path matching the provided pattern.
