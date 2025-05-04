@@ -10,10 +10,16 @@ This is not a full-fledged application, but a simple framework that allows easy 
 1. Install pip requirements 
 
 ``` bash
- pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 1. Run the app from the root directory
 ``` bash
 python ./src/main.py
 ``` 
+
+## Running The Tests
+You can run the tests using pytest with the folowing command
+```bash
+pytest
+```
