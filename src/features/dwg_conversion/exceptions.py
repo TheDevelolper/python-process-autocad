@@ -10,9 +10,11 @@ class InputFilesNotFoundException(Exception):
         super().__init__(self.message)
 
 
+class OdaConverterNotFoundException(Exception):
+    """Exception raised when the ODA Converter was not found"""
 
     def __init__(self, directory_path: str):
         # Store the directory_path and add a custom message
         self.directory_path = directory_path
-        self.message = f"No input files found in directory {directory_path}."
+        self.message = f"ODA Converter was not found at path {directory_path}. Please check it's installed and that correct path was provided."
         super().__init__(self.message)

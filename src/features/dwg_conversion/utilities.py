@@ -1,7 +1,10 @@
 import subprocess
 
 from features.dwg_conversion.contracts import BatchFileConverter
-from features.dwg_conversion.exceptions import InputFilesNotFoundException
+from features.dwg_conversion.exceptions import (
+    InputFilesNotFoundException,
+    OdaConverterNotFoundException,
+)
 from features.dwg_conversion.models import ConversionSettings
 from shared.utilities import FileSystemHelper
 
@@ -18,6 +21,9 @@ class BatchDxfConverter(BatchFileConverter):
         self.settings: ConversionSettings = settings
 
     def process(self):
+
+        # todo: if FileSystemHelper.FileExists(self.settings.oda_converter_path) == false:
+
         input_files = FileSystemHelper.get_dir_files(
             self.settings.input_folder, self.settings.input_file_filter
         )
@@ -27,6 +33,8 @@ class BatchDxfConverter(BatchFileConverter):
                 self.settings.input_folder, self.settings.input_file_filter
             )
 
+        if FileSystemHelper.path_exists(self.settings.oda_converter_path) is False:
+            raise OdaConverterNotFoundException(self.settings.oda_converter_path)
 
         try:
             subprocess.run(
