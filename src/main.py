@@ -4,8 +4,8 @@ from features.dwg_conversion.contracts import BatchFileConverter
 from features.dwg_conversion.models import AppSettings, ConversionSettings
 from features.dwg_conversion.utilities import BatchDxfConverter
 
-from features.dxf_processing.contracts import CadDiagramHelper
-from features.dxf_processing.utilities import DxfCadDiagramHelper
+from features.dxf_access.contracts import CadDiagramHelper
+from features.dxf_access.utilities import DxfCadDiagramHelper
 
 
 def main():
