@@ -2,14 +2,14 @@ from pytest_bdd import parsers, then
 from typing import Dict, Any
 
 
-@then(parsers.parse("{exception_count:d} exceptions are raised"))
+@then(parsers.parse("{expected_error_count:d} exceptions are raised"))
 def then_number_of_exceptions_raised_are_expected(
-    context: Dict[str, Any], exception_count: int
+    context: Dict[str, Any], expected_error_count: int
 ):
     """The number of exceptions raised should be as expected"""
     exceptions = context["exceptions"]
 
-    assert len(exceptions) == exception_count
+    assert len(exceptions) == expected_error_count
 
 
 @then(parsers.parse("a meaningful error '{expected_error}' is provided"))
