@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List
 
 
-class CadDiagramHelper(ABC):
+class CadDiagramWrapper(ABC):
     """
     Abstract base class that defines the interface for accessing CAD diagram metadata.
     """

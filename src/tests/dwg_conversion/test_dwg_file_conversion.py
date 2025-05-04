@@ -8,12 +8,11 @@ from features.dwg_conversion.models import AppSettings, ConversionSettings
 from features.dwg_conversion.utilities import BatchDxfConverter
 
 # ! These imports are used inside the testing framework
-# please don't remove then unless you really know what you're doing
+# * Please don't remove then unless you really know what you're doing
 # pylint: disable=unused-import
-from tests.shared.exception_handling import (
-    then_number_of_exceptions_raised_are_expected,  # type: ignore
-    then_meaningful_error_is_provided,  # type: ignore
-)
+# pylint: disable=wildcard-import
+# pylint: disable=unused-wildcard-import
+from tests.shared.exception_handling import *  # NOSONAR
 
 FEATURE_FILE_NAME = "dwg_file_conversion.feature"
 

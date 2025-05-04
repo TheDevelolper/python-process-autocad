@@ -1,15 +1,15 @@
 import ezdxf
 
 from typing import List
-from features.dxf_access.contracts import CadDiagramHelper
+from features.dxf_access.contracts import CadDiagramWrapper
 
 
-class DxfCadDiagramHelper(CadDiagramHelper):
+class DxfCadDiagramWrapper(CadDiagramWrapper):
     """Wrapper facade to provide targeted functionality for processing DXF files."""
 
-    def __init__(self, dxf_file_path: str):
-        self.dxf_file_path = dxf_file_path
-        self.doc = ezdxf.readfile(dxf_file_path)  # type: ignore
+    def __init__(self, dxf_path: str):
+        self.dxf_path = dxf_path
+        self.doc = ezdxf.readfile(dxf_path)  # type: ignore
 
     def get_layer_names(self) -> List[str]:
         """

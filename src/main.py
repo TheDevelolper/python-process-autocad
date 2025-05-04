@@ -4,8 +4,8 @@ from features.dwg_conversion.contracts import BatchFileConverter
 from features.dwg_conversion.models import AppSettings, ConversionSettings
 from features.dwg_conversion.utilities import BatchDxfConverter
 
-from features.dxf_access.contracts import CadDiagramHelper
-from features.dxf_access.utilities import DxfCadDiagramHelper
+from features.dxf_access.contracts import CadDiagramWrapper
+from features.dxf_access.utilities import DxfCadDiagramWrapper
 
 
 def main():
@@ -24,9 +24,9 @@ def main():
     """
     # Run the ODA File Converter
     app_settings: AppSettings = AppSettings.from_file("settings.json")
-    dxf_file_paths = dwg_convert_dxf(app_settings.conversion)
+    dxf_paths = dwg_convert_dxf(app_settings.conversion)
 
-    for file_path in dxf_file_paths:
+    for file_path in dxf_paths:
         cad_doc_wrapper = get_dxf_document_wrapper(file_path)
         print(cad_doc_wrapper.get_layer_names())
 
@@ -46,12 +46,12 @@ def dwg_convert_dxf(conversion_settings: ConversionSettings):
     return result
 
 
-def get_dxf_document_wrapper(dxf_file_path: str) -> CadDiagramHelper:
+def get_dxf_document_wrapper(dxf_path: str) -> CadDiagramWrapper:
     """Gets the wrapper for the dxf document
     Attributes:
         file_path (string): A string representing the filepath to the dxf file
     """
-    cad_doc_wrapper: CadDiagramHelper = DxfCadDiagramHelper(dxf_file_path)
+    cad_doc_wrapper: CadDiagramWrapper = DxfCadDiagramWrapper(dxf_path)
     return cad_doc_wrapper
 
 
