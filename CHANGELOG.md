@@ -1,7 +1,14 @@
+## 0.2.0 (2025-05-04)
+
+### Refactor
+
+- :recycle: Rename readme.md to README.md
+
 ## 0.1.0 (2025-05-04)
 
 ### Feat
 
+- **project-config**: :wrench: Adds commitizen conventional commit based changelog
 - :goal_net:  Checks ODA Converter file path prior to running
 
 ### Fix
