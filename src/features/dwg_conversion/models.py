@@ -22,7 +22,7 @@ class AppSettings:
         self.conversion: ConversionSettings = ConversionSettings(**conversion)
 
     @staticmethod
-    def load(file_path: str):
+    def from_file(file_path: str):
         """loads the settings from a file"""
         with open(file_path, "r") as f:
             settings_dict = json.load(f)
