@@ -23,7 +23,10 @@ class BatchDxfConverter(BatchFileConverter):
         )
 
         if len(input_files) == 0:
-            raise InputFilesNotFoundException(self.settings.input_folder)
+            raise InputFilesNotFoundException(
+                self.settings.input_folder, self.settings.input_file_filter
+            )
+
 
         try:
             subprocess.run(
