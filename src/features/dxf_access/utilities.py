@@ -1,7 +1,7 @@
 import ezdxf
 
 from typing import List
-from features.dxf_processing.contracts import CadDiagramHelper
+from features.dxf_access.contracts import CadDiagramHelper
 
 
 class DxfCadDiagramHelper(CadDiagramHelper):
