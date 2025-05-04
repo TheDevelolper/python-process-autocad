@@ -13,7 +13,7 @@ This is not a full-fledged application, but a simple framework that allows easy 
  pip install -r requirements.txt
 ```
 
-1. Run the thing
+1. Run the app from the root directory
 ``` bash
 python ./src/main.py
 ``` 
