@@ -23,7 +23,7 @@ def main():
         None
     """
     # Run the ODA File Converter
-    app_settings: AppSettings = AppSettings.load("Q://repos//python//settings.json")
+    app_settings: AppSettings = AppSettings.load("settings.json")
     dxf_file_paths = dwg_convert_dxf(app_settings.conversion)
 
     for file_path in dxf_file_paths:
