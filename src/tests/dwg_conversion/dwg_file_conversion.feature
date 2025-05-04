@@ -3,12 +3,6 @@ Feature: DWG File Conversion
 # Scenario: oda is not installed
 
 Scenario: missing dwg file
-    Given the dwg is not present
+    Given the dwg is not present in directory "src/tests/test_data/empty"
     When the conversion is performed
-    Then a meaningful error should be provided
-
-# Scenario: test one
-#     Given the number is 1
-#     When the check is made
-#     Then the result should be false
-
+    Then a meaningful error 'No input files found in directory "src/tests/test_data/empty".' is provided

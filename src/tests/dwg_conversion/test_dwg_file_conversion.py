@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Dict, Any
-from pytest_bdd import scenarios, given, when, then
+from pytest_bdd import scenarios, given, when, then, parsers
 
 import pytest
 
@@ -24,13 +24,13 @@ def context() -> Dict[str, Any]:
     return result
 
 
-@given("the dwg is not present")
-def given_the_dwg_is_not_present(context: Dict[str, Any]):
+@given(parsers.parse("the dwg is not present in directory {directory}"))
+def given_the_dwg_is_not_present(context: Dict[str, Any], directory: str):
     """Given the dwg is not present.
     Overrides the default app settings to specify an empty to scan for dwg files
     """
     app_settings: AppSettings = context["app_settings"]
-    app_settings.conversion.input_folder = "src/tests/test_data/empty"
+    app_settings.conversion.input_folder = directory
 
 
 @when("the conversion is performed")
@@ -45,16 +45,10 @@ def when_conversion_is_performed(context: Dict[str, Any]):
         context["exceptions"].append(e)
 
 
-@then("a meaningful error should be provided")
-def then_meaningful_error_should_be_provided(context: Dict[str, Any]):
-    """Then a meaningful error should be provided."""
-    app_settings: AppSettings = context["app_settings"]
-    conversion_settings: ConversionSettings = app_settings.conversion
-    converter_input_directory = conversion_settings.input_folder
-
+@then(parsers.parse("a meaningful error '{expected_error}' is provided"))
+def then_meaningful_error_is_provided(context: Dict[str, Any], expected_error: str):
+    """Then a meaningful error is provided."""
     exceptions = context["exceptions"]
+
     assert len(exceptions) == 1
-    assert (
-        str(exceptions[0])
-        == f"No input files found in directory { converter_input_directory }."
-    )
+    assert str(exceptions[0]) == expected_error
