@@ -8,4 +8,5 @@ Scenario: oda converter was not found
 Scenario: missing dwg file
     Given the dwg is not present in directory "src/tests/test_data/empty"
     When the conversion is performed
-    Then a meaningful error 'No input files matching *.DWG were found in directory "src/tests/test_data/empty".' is provided
+    Then 1 exceptions are raised
+    And a meaningful error 'No input files matching *.DWG were found in directory "src/tests/test_data/empty".' is provided
