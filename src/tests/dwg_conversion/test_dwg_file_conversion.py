@@ -1,11 +1,19 @@
 from pathlib import Path
 from typing import Dict, Any
-from pytest_bdd import scenarios, given, when, then, parsers
+from pytest_bdd import scenarios, given, when, parsers
 
 import pytest
 
 from features.dwg_conversion.models import AppSettings, ConversionSettings
 from features.dwg_conversion.utilities import BatchDxfConverter
+
+# ! These imports are used inside the testing framework
+# please don't remove then unless you really know what you're doing
+# pylint: disable=unused-import
+from tests.shared.exception_handling import (
+    then_number_of_exceptions_raised_are_expected,  # type: ignore
+    then_meaningful_error_is_provided,  # type: ignore
+)
 
 FEATURE_FILE_NAME = "dwg_file_conversion.feature"
 
@@ -52,12 +60,3 @@ def when_conversion_is_performed(context: Dict[str, Any]):
         converter.process()
     except Exception as e:
         context["exceptions"].append(e)
-
-
-@then(parsers.parse("a meaningful error '{expected_error}' is provided"))
-def then_meaningful_error_is_provided(context: Dict[str, Any], expected_error: str):
-    """Then a meaningful error is provided."""
-    exceptions = context["exceptions"]
-
-    assert len(exceptions) == 1
-    assert str(exceptions[0]) == expected_error
