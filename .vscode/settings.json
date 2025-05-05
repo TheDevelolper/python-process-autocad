@@ -6,6 +6,7 @@
   "conventionalCommits.scopes": [
     "project-config",
     "packages",
-    "test-data"
+    "test-data",
+    "tests"
   ]
 }

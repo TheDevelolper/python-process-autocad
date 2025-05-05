@@ -9,4 +9,4 @@ Scenario: missing dwg file
     Given the dwg is not present in directory "src/tests/test_data/empty"
     When the conversion is performed
     Then 1 exceptions are raised
-    And a meaningful error 'No input files matching *.DWG were found in directory "src/tests/test_data/empty".' is provided
+    And a meaningful error 'No input files matching *.dwg were found in directory "src/tests/test_data/empty".' is provided
