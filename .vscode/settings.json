@@ -3,5 +3,9 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "strict",
   "cSpell.words": ["ezdxf"],
-  "conventionalCommits.scopes": ["project-config"]
+  "conventionalCommits.scopes": [
+    "project-config",
+    "packages",
+    "test-data"
+  ]
 }
