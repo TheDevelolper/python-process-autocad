@@ -2,5 +2,6 @@
   "python.analysis.extraPaths": ["./src"],
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "strict",
-  "cSpell.words": ["ezdxf"]
+  "cSpell.words": ["ezdxf"],
+  "conventionalCommits.scopes": ["project-config"]
 }
