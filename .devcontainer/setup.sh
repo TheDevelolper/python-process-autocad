@@ -33,4 +33,5 @@ pip install -r requirements.txt
 export PYTHONPATH="$PYTHONPATH:/workspaces/python-process-autocad"
 
 # install comittizen for changelog generation
-npm install -g commitizen
+pip install commitizen
+echo "alias cz='python -m commitizen'" >> ~/.bashrc
