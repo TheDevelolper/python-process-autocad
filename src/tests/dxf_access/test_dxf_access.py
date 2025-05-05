@@ -1,4 +1,3 @@
-from ast import Assert
 from pathlib import Path
 from typing import Dict, Any
 from pytest_bdd import scenarios, given, when, then, parsers
