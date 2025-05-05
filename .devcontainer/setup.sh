@@ -30,7 +30,7 @@ cd -
 pip install -r requirements.txt
 
 # adds python path for pytest
-export PYTHONPATH="$PYTHONPATH:/workspaces/python-process-autocad"
+export PYTHONPATH="$PYTHONPATH:/workspaces/python-process-autocad/src"
 
 # install comittizen for changelog generation
 pip install commitizen
